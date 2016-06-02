@@ -1,0 +1,82 @@
+$(function() {
+  var ENDPOINT = 'https://ironhack-characters.herokuapp.com/characters';
+  var LIST_SELECTOR = '.js-characters-list';
+  var FORM_SELECTOR = '.js-form';
+
+  function fetchUsers() {
+    $.ajax({
+      type: 'GET',
+      url: ENDPOINT,
+      dataType: 'json',
+      success: addUsersToList
+    });
+  }
+
+  function addUsersToList(users) {
+    $(LIST_SELECTOR).append(users.map(userToHTML).join(''));
+  }
+
+  function userToHTML(user) {
+    return '' +
+      '<ul>' +
+        '<li><h2>' + user.name + '</h2></li>' +
+        '<li> Debt: ' + user.debt + '</li>' +
+        '<li> Occupation: ' + user.occupation + '</li>' +
+        '<li> Weapon: ' + user.weapon + '</li>' +
+      '</ul>';
+  }
+
+  function createUser(user, callback) {
+    $.ajax({
+      type: 'POST',
+      url: ENDPOINT,
+      success: function(response) {
+        callback(response.id);
+      },
+      data: user,
+      dataType: 'json'
+    });
+  }
+
+  function getUser(userId, callback) {
+    //
+  }
+
+  function getUserFromInputs($inputs) {
+    return $.makeArray($inputs).reduce(function(result, item) {
+      var $input = $(item);
+      var value = $input.prop('type') === 'checkbox'
+        ? $input.val() === 'on'
+        : $input.val();
+      result[$input.prop('name')] = value
+      return result;
+    }, {});
+  }
+
+  function isUserInvalid(user) {
+    var messages = [];
+
+    if (user.name === '') messages.push('Tienes que rellenar el nombre');
+    if (user.occupation === '') messages.push('Tienes que rellenar ocupación');
+    return messages.length !== 0
+      ? messages
+      : false;
+  }
+
+  $(FORM_SELECTOR).on('submit', function(event) {
+    event.preventDefault();
+    var $inputs = $(this).find('input');
+    if(isUserInvalid(getUserFromInputs($inputs))) {
+      console.log('is valid');
+    } else {
+      console.log('is not valid');
+    }
+
+    // createUser(getUserFromInputs($(this).find('input')), function(userId) {
+    //   getUser(userId, function(user) {
+    //     addUserToList(user);
+    //   })
+    // });
+  });
+});
+

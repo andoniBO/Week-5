@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </head>
+  <body>
+    <form class="js-create-character" action="index.html" method="post">
+      <label>Name:</label>
+      <input type="text" name="name" placeholder="Name">
+      <label>Surname</label>
+      <input type="text" name="surname" placeholder="Surname">
+      <input class="js-button" type="submit" value="Submit">
+    </form>
+    <script type="text/javascript">
+      $(function(){})
+      $('.js-create-character').on('submit', function (event) {
+        event.preventDefault();
+        var isFilled = false;
+
+        $('input').each(function(index,item) {
+          if($(item).val() === '') {
+            isFilled = true;
+          }
+        });
+
+        var hasEmptyValues = $.makeArray($('input')).reduce(function(result, item) {
+          return $(item).val() !== '' && result;
+        },true);
+
+      //  $.makeArray($('input')).reduce(function(index, element){
+      //  }, {});
+
+        if(hasEmptyValues == true) {
+          event.submit;
+        }
+      });
+    </script>
+  </body>
+</html>

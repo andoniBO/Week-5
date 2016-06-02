@@ -1,0 +1,111 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<style>
+		/*.h{
+			width: 100%;
+		}*/
+		/*header{
+			position: fixed;
+			top: 0;
+			z-index: 100;
+		}*/
+		.navbar{
+			position: fixed;
+			top: 0;
+			z-index: 100;
+			width: 100%;
+		}
+	/*	.h{
+			padding-top: 100px;
+		}*/
+		.form-group{
+			padding-top: 40px;
+				width: 100%;
+		}
+	/*	.my-button{
+			background: #A6C948;
+			color: white;
+			width: 150%;
+			margin-left: -50px;
+		}
+		.my-button:hover{
+			background: #84B301;
+			color: white;
+		}*/
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3">
+					<form role="form">
+						<div class="form-group">
+							<!--     <label for="artistName">Artist: </label> -->
+							<div class="row">
+								<div class="col-sm-10">
+									<input id="trackName" type="text" name="songName" value="" placeholder="Input song name...">
+									<button type="submit">Submit</button>
+                </div>
+              </div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="widget">
+		<div class="header">
+		<!-- Try adding/removing these classes: -->
+		<!-- disabled -->
+		<!-- playing -->
+		<div class="js-btn-play btn-play disabled"></div>
+
+		<div class="metadata">
+		  <p class="title js-title">Tractor Amarillo</p>
+		  <a class="author js-author">Zapato Veloz</a>
+
+		  <div class="seekbar">
+		    <progress class="js-progress-bar" value="0" max="30"></progress>
+		  </div>
+		</div>
+		</div>
+		<div class="cover">
+		<img class="js-cover" src="https://i.scdn.co/image/7ba8427f431f32697d76ae6664112bb35ad6f924">
+		</div>
+
+		<audio class="js-player" src="https://p.scdn.co/mp3-preview/80b5cbc95933e1e0a74c077c341d889c7fcb26fb"></audio>
+	</div>
+	<div class="modal fade js-modal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+
+	      <div class="modal-header">
+	        <!-- Close button -->
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span>&times;</span>
+	        </button>
+
+	        <h2 class="js-modal-header">This is the modal's header.</h2>
+	      </div>
+
+	      <div class="modal-body js-modal-body">
+	      </div>
+
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<script src="searchSong.js"></script>
+</body>
+</html>

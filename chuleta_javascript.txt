@@ -1,0 +1,33 @@
+iniciar servidor:
+	python -m simpleHTTPserver
+
+$ => representa una variable
+
+selectores:
+$('p') => tag
+$('#title') => id
+$('.js-tacos') => clase
+$('[data-action="do stuff"]') => attribute
+si se le añade *:not(<loquesea>) el selector pilla todo menos <loquesea>
+
+.prepend => añade dentro del elemento al principio
+.append => añade dentro del elemento al final
+.before => añade fuera del elemento antes
+.after => añade fuera del elemento despues
+.remove => el elemento seleccionado se elimina
+.empty => el elemento seleccionado se vacia
+.prop() => manipular propiedades
+.hasClass() => comprueba si tiene clase
+.addClass() => añade una clase
+.removeClass() => borra una clase
+.toggleclass() => pone/quita una clase
+.toggle() => activa/desactiva elemento
+.val() => get values of form input
+
+porpiedades de objeto 'event' populares:
+event.currentTarget
+event.preventDefault() - cancela el comportamiento predeterminado de un objeto (p ej un submit)
+event.pageX
+event.pageY
+event.data
+event.which - indica que tecla (teclado o raton) ha sido presionada
